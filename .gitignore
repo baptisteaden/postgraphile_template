@@ -1,1 +1,2 @@
 docker/postgraphile_template/db/data
+.env

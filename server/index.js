@@ -1,8 +1,6 @@
 (async () => {
-  const fastify = require("fastify")({
-    logger: true,
-  });
   const { postgraphile } = require("postgraphile");
+  const fastify = require("fastify")({ logger: true });
 
   await fastify.register(require("middie"));
   fastify.use(require("cors")());
@@ -12,6 +10,8 @@
       watchPg: true,
       graphiql: true,
       enhanceGraphiql: true,
+      jwtPgTypeIdentifier: process.env.POSTGRES_JWT_TOKEN_TYPE,
+      jwtSecret: process.env.POSTGRES_JWT_SECRET,
     })
   );
 
