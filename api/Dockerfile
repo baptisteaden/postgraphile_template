@@ -2,9 +2,11 @@ FROM node:lts-alpine
 
 WORKDIR /app
 
-RUN npm install postgraphile postgraphile-plugin-connection-filter fastify middie cors
+COPY package.json .
 
-EXPOSE 5433
+RUN npm install
+
+#EXPOSE 5433
 
 #ENTRYPOINT ["postgraphile", "-n", "0.0.0.0", "--watch"]
 #ENTRYPOINT ["npx", "nodemon", "server/index.js"]
