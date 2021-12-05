@@ -1,5 +1,3 @@
-\connect forum_example;
-
 /*Create user table in public schema*/
 CREATE TABLE public.user (
     id SERIAL PRIMARY KEY,

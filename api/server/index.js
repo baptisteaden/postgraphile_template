@@ -10,8 +10,8 @@
       watchPg: true,
       graphiql: true,
       enhanceGraphiql: true,
-      jwtPgTypeIdentifier: process.env.POSTGRES_JWT_TOKEN_TYPE,
-      jwtSecret: process.env.POSTGRES_JWT_SECRET,
+      jwtPgTypeIdentifier: "public.jwt_token",
+      jwtSecret: process.env.JWT_SECRET,
     })
   );
 

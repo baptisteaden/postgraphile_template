@@ -1,25 +1,30 @@
 # PostGraphile + fastify template 
 
 ## Get started
-- rename `postgraphile-template/` folder under `docker/` to match your own app name (it's used just to have a decent app name in `Docker Desktop`)
-- `docker/postgraphile_template/db/init` contains sql files that'll be executed to init your db if it's empty
-  - file `00-auth.sql` contains the authentication logic, that allows to have different rights over the data depending on the role
-  - you can delete other example files, describe your own schema and add some initial data here
-- rename `.env.example` to `.env` and update it
+- `mv db/.env.example db/.env` and update it
+- `mv api/.env.example api/.env` and update it
+- rename the db you connect to in `db/up/00_init.sql`
+- start the containers with `docker-compose up -d`
+- go in your db with `docker-compose exec db psql -U postgres -d postgres_template` or try your graphql api by visiting `http://localhost:5433/graphiql`
 
 ## Notes
-- the `graphql` service uses `nodemon` to automatically reflect changes to `server/index.js`, change to `node` in prod
-
+- `db/up` contains sql files that'll be executed to init your db if it's empty
+  - keep the code in the folders if you want to keep the `public.authenticate` function, that'll allow to auth with jwt and setup rights
+  - you can delete other example files, describe your own schema and add some initial data here
 
 ## Helpers 
 
 ```
-# start
-cd docker/postgraphile_template && docker-compose up -d
+# start containers
+docker-compose up -d
 
-# psql into container
-docker-compose exec db psql -U postgres -d forum_example
+# psql into db container
+docker-compose exec db psql -U postgres -d postgres_template
 
-# get db
-docker-compose cp db:/var/lib/postgresql/data .
+# rm db + restart all + psql
+docker-compose down && \
+sudo rm -rf db/data/ && \
+docker-compose up --build -d && \
+sleep 1 && \ 
+docker-compose exec db psql -U postgres -d postgres_template
 ```
