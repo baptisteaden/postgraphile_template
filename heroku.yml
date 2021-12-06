@@ -6,3 +6,5 @@ build:
   docker:
     db: db/Dockerfile
     api: api/Dockerfile
+run:
+  web: npx node server/index.js
