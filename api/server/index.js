@@ -15,6 +15,7 @@
         enhanceGraphiql: true,
         jwtPgTypeIdentifier: "public.jwt_token",
         jwtSecret: process.env.JWT_SECRET,
+        rejectUnauthorized: false,
       }
     )
   );
