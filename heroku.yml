@@ -4,5 +4,5 @@ setup:
       as: DATABASE
 build:
   docker:
-    db: app/db/Dockerfile
-    api: app/api/Dockerfile
+    db: db/Dockerfile
+    api: api/Dockerfile
