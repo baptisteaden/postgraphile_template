@@ -5,6 +5,6 @@ setup:
 build:
   docker:
     db: db/Dockerfile
-    api: api/Dockerfile
+    web: api/Dockerfile
 run:
   web: npx node server/index.js
