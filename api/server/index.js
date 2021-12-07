@@ -7,7 +7,11 @@
 
   fastify.use(
     postgraphile(
-      process.env.DATABASE_URL + "?ssl=true" || "postgres://postgres/",
+      {
+        connectionString:
+          `${process.env.DATABASE_URL}?ssl=true` ?? "postgres://postgres/",
+        ssl: { rejectUnauthorized: false },
+      },
       "public",
       {
         watchPg: true,
