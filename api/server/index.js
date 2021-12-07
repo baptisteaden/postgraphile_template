@@ -5,12 +5,16 @@
   await fastify.register(require("middie"));
   fastify.use(require("cors")());
 
+  const ssl = process.env.NODE_ENV === "production" && {
+    rejectUnauthorized: false,
+  };
   fastify.use(
     postgraphile(
       {
         connectionString:
-          `${process.env.DATABASE_URL}?ssl=true` ?? "postgres://postgres/",
-        ssl: { rejectUnauthorized: false },
+          `${process.env.DATABASE_URL}${ssl ? "?ssl=true" : ""}` ??
+          "postgres://postgres/",
+        ssl,
       },
       "public",
       {

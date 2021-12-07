@@ -4,11 +4,14 @@ services:
     container_name: postgraphile_template_db
     image: postgraphile_template_db
     restart: always
-    build: ./db
+    build: 
+      context: ./db
+      args: 
+        - POSTGRES_DB=${POSTGRES_DB}
+    env_file:
+      - ./.env
     volumes:
       - ./db/data:/var/lib/postgresql/data
-    env_file:
-      - ./db/.env
     networks:
       - network
     ports:
@@ -22,7 +25,7 @@ services:
     volumes:
       - ./api/server:/app/server
     env_file:
-      - ./api/.env
+      - ./.env
     depends_on:
       - db
     networks:
