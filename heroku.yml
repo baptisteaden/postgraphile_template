@@ -9,6 +9,10 @@ build:
     db: db/Dockerfile
     web: api/Dockerfile
   config:
-    DB_WORKDIR: /app/db/up
+    DB_WORKDIR: db/up
+release:
+  image: db
+  command:
+    - ./db/up/up.sh
 run:
   web: npx node server/index.js
