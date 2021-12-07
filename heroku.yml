@@ -2,9 +2,13 @@ setup:
   addons:
     - plan: heroku-postgresql
       as: DATABASE
+  config:
+    NODE_ENV: production
 build:
   docker:
     db: db/Dockerfile
     web: api/Dockerfile
+  config:
+    DB_WORKDIR: /app/db/up
 run:
   web: npx node server/index.js

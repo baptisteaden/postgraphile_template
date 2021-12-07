@@ -8,6 +8,7 @@ services:
       context: ./db
       args: 
         - POSTGRES_DB=${POSTGRES_DB}
+        - DB_WORKDIR=${DB_WORKDIR}
     env_file:
       - ./.env
     volumes:

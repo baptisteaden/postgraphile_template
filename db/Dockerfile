@@ -1,8 +1,9 @@
 FROM postgres:14.1-alpine
 
 ARG POSTGRES_DB
+ARG DB_WORKDIR
 
-WORKDIR /docker-entrypoint-initdb.d
+WORKDIR $DB_WORKDIR
 
 COPY ./up .
 
