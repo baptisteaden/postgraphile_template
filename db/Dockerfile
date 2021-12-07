@@ -7,4 +7,4 @@ WORKDIR $DB_WORKDIR
 
 COPY ./up .
 
-RUN echo "\connect $POSTGRES_DB" | cat - 00_init.sql > tmp && mv tmp 00_init.sql
+RUN echo "\connect $POSTGRES_DB" | cat - 00_init/init.sql > tmp && mv tmp 00_init/init.sql
