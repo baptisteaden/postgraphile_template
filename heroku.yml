@@ -13,6 +13,6 @@ build:
 release:
   image: db
   command:
-    - ls && ./db/up/up.sh
+    - echo "alo" && ls
 run:
   web: npx node server/index.js
