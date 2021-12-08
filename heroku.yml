@@ -13,6 +13,6 @@ build:
 release:
   image: db
   command:
-    - ./db/up/up.sh
+    - ls && ./db/up/up.sh
 run:
   web: npx node server/index.js
