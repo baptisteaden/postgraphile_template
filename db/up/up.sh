@@ -1,7 +1,9 @@
 # This will recurse all sub-directories inside /docker-entrypoint-initdb.d/ and run the files the same way the original Dockerfile do
 # Note that this script is executed AFTER the sql files that are directly in /docker-entrypoint-initdb.d
 
-find . -mindepth 2 -type f -print0 | sort -z | while read -d $'\0' f; do
+SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+
+find $SCRIPT_DIR -mindepth 2 -type f -print0 | sort -z | while read -d $'\0' f; do
   case "$f" in
     *.sh)
       if [ -x "$f" ]; then
