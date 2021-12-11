@@ -32,7 +32,7 @@
     res.send({ hello: "world" });
   });
 
-  fastify.listen(5433, "0.0.0.0", (err, address) => {
+  fastify.listen(process.env.PORT, "0.0.0.0", (err, address) => {
     if (err) throw err;
   });
 })();
