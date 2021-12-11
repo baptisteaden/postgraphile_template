@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # This will recurse all sub-directories inside /docker-entrypoint-initdb.d/ and run the files the same way the original Dockerfile do
 # Note that this script is executed AFTER the sql files that are directly in /docker-entrypoint-initdb.d
 
