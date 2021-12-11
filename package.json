@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/baptisteaden/postgraphile_template#readme",
   "dependencies": {
-    "postrgraphile_template_api": "file:./api"
+    "postrgraphile_template_api": "file:./api",
+    "postrgraphile_template_db": "file:./db"
   }
 }

@@ -1,4 +1,4 @@
-create function public.authenticate(
+create or replace function public.authenticate(
   email text,
   password text
 ) returns public.jwt_token as $$

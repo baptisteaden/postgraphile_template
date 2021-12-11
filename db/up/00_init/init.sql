@@ -1,2 +1,2 @@
-create extension pgcrypto;
-create schema private;
+create extension if not exists pgcrypto;
+create schema if not exists private;
