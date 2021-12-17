@@ -1,0 +1,26 @@
+<html>
+  <body>
+    <div id="test">Loading...</div>
+    <script>
+      fetch("https://postgraphile-template.herokuapp.com/graphql", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          query: `{
+            allPeople {
+              nodes {
+                id
+                firstName
+              }
+            }
+          }`
+        })
+      }).then(res => res.json()).then(res => document.getElementById('test').innerText = JSON.stringify(res))
+      // TODO: same with urql
+      // TODO: docker-compose + gogo svelte
+    </script>
+  </body>
+</html>
+
