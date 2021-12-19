@@ -31,5 +31,20 @@ services:
       - 5433:5433
     #command: ["--connection", "${DATABASE_URL}", "--port", "5433", "--schema", "public", "--append-plugins", "postgraphile-plugin-connection-filter"]
 
+  web:
+    container_name: postgraphile_template_web
+    image: postgraphile_template_web
+    build: ./web
+    volumes:
+      - ./web:/app
+    env_file:
+      - ./.env
+    depends_on:
+      - api
+    networks:
+      - network
+    ports:
+      - 5434:5433
+
 networks:
   network:
