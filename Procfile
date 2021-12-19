@@ -1,2 +1,1 @@
-api: npx node api/server/index.js
-web: bin/boot
+web: npx node api/server/index.js
