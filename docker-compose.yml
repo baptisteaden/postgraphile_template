@@ -44,7 +44,7 @@ services:
     networks:
       - network
     ports:
-      - 5434:5433
+      - 5434:3000
 
 networks:
   network:

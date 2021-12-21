@@ -1,9 +1,12 @@
-A webapp template with postgres and postgraphile (auto-generated a graphql api)
+A webapp template with sveltekit, postgres and postgraphile (auto-generated graphql api)
 
 ## Get started
 - rename `.env.example` to `.env` and update it with your values
 - start the containers locally with `docker-compose up -d`
-- go in your local db with `docker-compose exec db psql -U postgres -d postgraphile_template` or try your graphql api by visiting `http://localhost:5433/graphiql`
+- start coding 👩‍💻 
+  - you can go in your local db with `docker-compose exec db psql -U postgres -d postgraphile_template` 
+  - try your graphql api by visiting `http://localhost:5433/graphiql`
+  - see your ui at `http://localhost:5434`
 
 ## Deploy
 ### API & database (using heroku)
@@ -14,7 +17,7 @@ A webapp template with postgres and postgraphile (auto-generated a graphql api)
 - wait until it's deployed, then in your terminal type `heroku run node db/migrate.js` to init the db
 ### UI (using netlify)
 - in netlify ui, `Add new site` > `Import existing project` and select your repo
-- put `web/` in the `Base directory` input, `web/dist/` in the `Publish directory` one and `npm run build` as the `Build command`
+- put `web/` in the `Base directory` input, `web/public/` in the `Publish directory` one and `npm run build` as the `Build command`
 
 ## Notes
 - postgres data lives in the volume `db/data`
