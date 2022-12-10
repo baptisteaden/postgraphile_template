@@ -18,7 +18,9 @@ services:
     container_name: postgraphile_template_api
     image: postgraphile_template_api
     restart: always
-    build: ./api
+    build: 
+      context: ./api
+      dockerfile: Dockerfile.dev
     volumes:
       - ./api/server:/app/server
     env_file:
@@ -34,7 +36,9 @@ services:
   web:
     container_name: postgraphile_template_web
     image: postgraphile_template_web
-    build: ./web
+    build:
+      context: ./web
+      dockerfile: Dockerfile.dev
     volumes:
       - ./web:/app
     env_file:

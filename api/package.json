@@ -10,7 +10,9 @@
     "postgraphile": "^4.12.6",
     "postgraphile-plugin-connection-filter": "^2.2.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
