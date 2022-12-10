@@ -1,7 +1,7 @@
 {
   "name": "postgraphile_template",
   "version": "1.0.0",
-  "description": "A webapp template with postgres and postgraphile (auto-generates a graphql api based on a postgres db)",
+  "description": "A template to quickly start developping a webapp on top of a db and a graphql api. Based on sveltekit, postgres and postgraphile.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

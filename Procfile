@@ -1,1 +1,0 @@
-web: npx node api/server/index.js
