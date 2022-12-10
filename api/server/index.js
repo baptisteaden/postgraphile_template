@@ -12,7 +12,7 @@
     postgraphile(
       {
         connectionString:
-          `${process.env.DATABASE_URL}${ssl ? "?ssl=true" : ""}` ??
+          `${process.env.DATABASE_URL}${ssl ? "" : ""}` ??
           "postgres://postgres/",
         ssl,
       },
